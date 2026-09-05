@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HireMatch | AI Job Matching</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Hire<span>Match</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="#home">Home</a>
+
+            <a href="#how-it-works">How It Works</a>
+
+            <a href="#features">Features</a>
+
+            <a href="#about">About</a>
+
+        </div>
+
+        <a href="#upload" class="nav-button">
+            Get Started
+        </a>
+
+    </nav>
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                AI-POWERED CAREER MATCHING
+            </div>
+
+            <h1>
+                Find the right job
+                <span>for your skills.</span>
+            </h1>
+
+            <p class="hero-description">
+
+                Upload your resume and let HireMatch analyze
+                your skills, identify gaps, and recommend
+                jobs that match your profile.
+
+            </p>
+
+
+            <!-- Upload Card -->
+
+            <div class="upload-card" id="upload">
+
+                <div class="upload-icon">
+                    ↑
+                </div>
+
+                <h3>
+                    Upload your resume
+                </h3>
+
+                <p>
+                    Drop your PDF here or choose a file
+                </p>
+
+
+                <form action="/analyze"
+                      method="POST"
+                      enctype="multipart/form-data">
+
+                    <input
+                        type="file"
+                        name="resume"
+                        id="resume"
+                        accept=".pdf"
+                        required
+                    >
+
+                    <label for="resume"
+                           class="choose-button">
+
+                        Choose Resume
+
+                    </label>
+
+
+                    <p id="file-name"></p>
+
+
+                    <button type="submit"
+                            class="analyze-button">
+
+                        Analyze Resume
+                        <span>→</span>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="trust">
+
+        <p>
+            BUILT FOR MODERN JOB SEARCH
+        </p>
+
+        <div class="trust-items">
+
+            <span>Resume Analysis</span>
+
+            <span>Skill Matching</span>
+
+            <span>AI Recommendations</span>
+
+            <span>Career Insights</span>
+
+        </div>
+
+    </section>
+
+    <section class="section"
+             id="how-it-works">
+
+        <div class="section-heading">
+
+            <div class="hero-label">
+                SIMPLE PROCESS
+            </div>
+
+            <h2>
+                Your next opportunity,
+                <span>simplified.</span>
+            </h2>
+
+            <p>
+                HireMatch turns your resume into personalized
+                job recommendations in just a few steps.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+            <div class="process-card">
+
+                <div class="number">
+                    01
+                </div>
+
+                <h3>
+                    Upload
+                </h3>
+
+                <p>
+                    Upload your resume in PDF format.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="number">
+                    02
+                </div>
+
+                <h3>
+                    Analyze
+                </h3>
+
+                <p>
+                    HireMatch extracts your skills and
+                    analyzes your profile.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="number">
+                    03
+                </div>
+
+                <h3>
+                    Match
+                </h3>
+
+                <p>
+                    Your profile is compared with available
+                    job opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="number">
+                    04
+                </div>
+
+                <h3>
+                    Discover
+                </h3>
+
+                <p>
+                    Get your best matching jobs and
+                    skills to improve.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="feature-section"
+             id="features">
+
+        <div class="feature-text">
+
+            <div class="hero-label">
+                SMARTER JOB SEARCH
+            </div>
+
+            <h2>
+                More than just
+                <span>job recommendations.</span>
+            </h2>
+
+            <p>
+                HireMatch helps you understand not only
+                which jobs match your resume, but also
+                which skills you can improve to become
+                a stronger candidate.
+            </p>
+
+
+            <div class="feature-list">
+
+                <div>
+                    <strong>01</strong>
+                    <span>AI Resume Analysis</span>
+                </div>
+
+                <div>
+                    <strong>02</strong>
+                    <span>Job Match Score</span>
+                </div>
+
+                <div>
+                    <strong>03</strong>
+                    <span>Skill Gap Detection</span>
+                </div>
+
+                <div>
+                    <strong>04</strong>
+                    <span>Personalized Recommendations</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-preview">
+
+            <div class="preview-top">
+
+                <span>
+                    Resume Analysis
+                </span>
+
+                <span class="status">
+                    Completed
+                </span>
+
+            </div>
+
+
+            <div class="score-area">
+
+                <div class="score-circle">
+                    82%
+                </div>
+
+                <div>
+
+                    <h3>
+                        Strong Match
+                    </h3>
+
+                    <p>
+                        Your resume matches
+                        several available roles.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="skills">
+
+                <p>
+                    MATCHED SKILLS
+                </p>
+
+                <div class="skill-tags">
+
+                    <span>Python</span>
+                    <span>SQL</span>
+                    <span>Pandas</span>
+                    <span>Git</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skills missing">
+
+                <p>
+                    SKILLS TO IMPROVE
+                </p>
+
+                <div class="skill-tags">
+
+                    <span>Docker</span>
+                    <span>AWS</span>
+                    <span>Django</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="about"
+             id="about">
+
+        <div class="about-card">
+
+            <div>
+
+                <div class="hero-label">
+                    ABOUT HIREMATCH
+                </div>
+
+                <h2>
+                    Make your resume
+                    work smarter.
+                </h2>
+
+            </div>
+
+            <p>
+
+                HireMatch uses Natural Language Processing,
+                TF-IDF and cosine similarity to compare
+                resume content with job descriptions and
+                identify relevant opportunities.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="cta">
+
+        <div>
+
+            <h2>
+                Ready to find your match?
+            </h2>
+
+            <p>
+                Upload your resume and discover
+                where your skills can take you.
+            </p>
+
+            <a href="#upload"
+               class="cta-button">
+
+                Analyze My Resume →
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <div class="logo">
+            Hire<span>Match</span>
+        </div>
+
+        <p>
+            AI-powered resume and job matching system.
+        </p>
+
+        <p class="copyright">
+            © 2026 HireMatch. Built as an AI/ML portfolio project.
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        const resumeInput =
+            document.getElementById("resume");
+
+        const fileName =
+            document.getElementById("file-name");
+
+
+        resumeInput.addEventListener(
+            "change",
+            function () {
+
+                if (resumeInput.files.length > 0) {
+
+                    fileName.textContent =
+                        "Selected: " +
+                        resumeInput.files[0].name;
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

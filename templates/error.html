@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HireMatch | Error</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Hire<span>Match</span>
+        </div>
+
+        <a href="/"
+           class="nav-button">
+            Back to Home
+        </a>
+
+    </nav>
+
+
+    <main class="error-page">
+
+        <div class="error-card">
+
+            <div class="error-icon">
+                !
+            </div>
+
+            <div class="hero-label">
+                UPLOAD ERROR
+            </div>
+
+            <h1>
+                {{ title }}
+            </h1>
+
+            <p>
+                {{ message }}
+            </p>
+
+            <a href="/"
+               class="cta-button">
+
+                Upload Valid Resume →
+
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <div class="logo">
+            Hire<span>Match</span>
+        </div>
+
+        <p>
+            AI-powered resume and job matching system.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

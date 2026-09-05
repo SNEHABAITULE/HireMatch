@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HireMatch | Results</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Hire<span>Match</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="/#how-it-works">
+                How It Works
+            </a>
+
+            <a href="/#features">
+                Features
+            </a>
+
+        </div>
+
+        <a href="/"
+           class="nav-button">
+            New Analysis
+        </a>
+
+    </nav>
+
+
+    <main class="results-page">
+
+        <div class="results-heading">
+
+            <div class="hero-label">
+                RESUME ANALYSIS COMPLETE
+            </div>
+
+            <h1>
+                Your HireMatch Results
+            </h1>
+
+            <p>
+                We analyzed
+                <strong>{{ filename }}</strong>
+                and found job opportunities based on your skills.
+            </p>
+
+        </div>
+
+
+        <section class="result-overview">
+
+            <div class="score-card">
+
+                <div class="score-circle large">
+                    {{ match_score }}%
+                </div>
+
+                <div>
+
+                    <span class="result-label">
+                        BEST MATCH SCORE
+                    </span>
+
+                    <h2>
+                        Your resume match
+                    </h2>
+
+                    <p>
+                        Based on similarity between your
+                        resume and available job descriptions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="skills-card">
+
+                <span class="result-label">
+                    YOUR SKILLS
+                </span>
+
+                <h2>
+                    Matched Skills
+                </h2>
+
+                <div class="skill-tags">
+
+                    {% for skill in matched_skills %}
+
+                    <span>
+                        {{ skill }}
+                    </span>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="skills-gap">
+
+            <div>
+
+                <span class="result-label">
+                    CAREER IMPROVEMENT
+                </span>
+
+                <h2>
+                    Skills You Can Improve
+                </h2>
+
+                <p>
+                    These skills may help you become eligible
+                    for more job opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="missing-tags">
+
+                {% for skill in missing_skills %}
+
+                <span>
+                    {{ skill }}
+                </span>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+
+        <section class="jobs-section">
+
+            <div class="jobs-heading">
+
+                <div>
+
+                    <span class="result-label">
+                        RECOMMENDATIONS
+                    </span>
+
+                    <h2>
+                        Top Job Matches
+                    </h2>
+
+                </div>
+
+                <span class="job-count">
+                    Top 5
+                </span>
+
+            </div>
+
+
+            <div class="job-list">
+
+                {% for job in jobs %}
+
+                <div class="job-card">
+
+                    <div class="job-info">
+
+                        <h3>
+
+                            {% if job.get("job_title") %}
+                                {{ job.get("job_title") }}
+
+                            {% elif job.get("title") %}
+                                {{ job.get("title") }}
+
+                            {% elif job.get("Job Title") %}
+                                {{ job.get("Job Title") }}
+
+                            {% else %}
+                                Job Opportunity
+                            {% endif %}
+
+                        </h3>
+
+
+                        <p class="company">
+
+                            {% if job.get("company") %}
+                                {{ job.get("company") }}
+
+                            {% elif job.get("Company") %}
+                                {{ job.get("Company") }}
+
+                            {% else %}
+                                Company
+                            {% endif %}
+
+                        </p>
+
+
+                        <div class="job-details">
+
+                            {% if job.get("location") %}
+                                <span>{{ job.get("location") }}</span>
+                            {% endif %}
+
+                            {% if job.get("experience") %}
+                                <span>{{ job.get("experience") }}</span>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="job-score">
+
+                        <strong>
+                            {{ job.get("match_score") }}%
+                        </strong>
+
+                        <span>
+                            Match
+                        </span>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+
+        <div class="bottom-action">
+
+            <a href="/"
+               class="cta-button">
+
+                Analyze Another Resume →
+
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <div class="logo">
+            Hire<span>Match</span>
+        </div>
+
+        <p>
+            AI-powered resume and job matching system.
+        </p>
+
+        <p class="copyright">
+            © 2026 HireMatch. Built as an AI/ML portfolio project.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
